@@ -1,0 +1,122 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+:root {
+    --grad: linear-gradient(to right, rgb(199, 35, 35), rgb(39, 39, 223));
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-image: var(--grad);
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#sidebar li {
+    background-image: var(--grad);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-right: none;
+}
+
+#sidebar button {
+    padding: 10px;
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(90, 90, 90);
+    border: solid rgb(90, 90, 90) 1px;
+    color: white;
+}
+
+#sidebar input {
+    padding: 10px;
+    border: solid black 1px;
+    width: 400px;
+    float: left;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+    padding-bottom: 25px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#forecast-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#current-day-forecast {
+    background-color: rgb(185, 185, 187);
+    border-radius: 10px;
+    height: 150px;
+    padding: 10px;
+    margin: 20px;
+    margin-bottom: 40px;
+    width: 1000px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+#current-day-forecast h3, #current-day-forecast p {
+    padding: 8px;
+}
+
+#forecast-header {
+    margin-top: 20px;
+    padding-left: 40px;
+}
+
+#five-day-forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.forecast-card {
+    background-color: rgb(185, 185, 187);
+    border-radius: 10px;
+    width: 150px;
+    height: 200px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.forecast-card p {
+    padding: 5px;
+}
+
+

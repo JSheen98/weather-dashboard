@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main>
+
+        <section id="sidebar">
+            <form>
+                <label for="location-name">Location Search:</label> <br><br>
+                <input type="text" id="location-name" placeholder="City Name (i.e New York)" name="search">
+                <button id="submit-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <div id="previous-search-container">
+                <ul>
+                    <!-- <li>Test 1</li> -->
+                    <!-- <li>Test 2</li> -->
+                </ul>
+            </div>
+        </section>
+        
+        <section id="forecast-container">
+
+            <!-- <section id="current-day-forecast">
+                <h3>Location: Test </h3>
+                <p>Temp: Test</p>
+                <p>Wind: Test</p>
+                <p>Humidity: Test</p>
+            </section> -->
+
+            <!-- <h3 id="forecast-header">This week's forecast:</h3>
+
+            <section id="five-day-forecast">
+                <div class="forecast-card">
+                    <p class="card-date">Date</p>
+                    <p class="card-icon">Icon</p>
+                    <p class="card-temp">Temp</p>
+                    <p class="card-wind">Wind</p>
+                    <p class="card-humidity">Humidity</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="card-date">Date</p>
+                    <p class="card-icon">Icon</p>
+                    <p class="card-temp">Temp</p>
+                    <p class="card-wind">Wind</p>
+                    <p class="card-humidity">Humidity</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="card-date">Date</p>
+                    <p class="card-icon">Icon</p>
+                    <p class="card-temp">Temp</p>
+                    <p class="card-wind">Wind</p>
+                    <p class="card-humidity">Humidity</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="card-date">Date</p>
+                    <p class="card-icon">Icon</p>
+                    <p class="card-temp">Temp</p>
+                    <p class="card-wind">Wind</p>
+                    <p class="card-humidity">Humidity</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="card-date">Date</p>
+                    <p class="card-icon">Icon</p>
+                    <p class="card-temp">Temp</p>
+                    <p class="card-wind">Wind</p>
+                    <p class="card-humidity">Humidity</p>
+                </div>
+            </section> -->
+
+        </section>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="./assets/JS/script.js"></script>
+</body>
+</html>
