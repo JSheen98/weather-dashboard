@@ -40,6 +40,12 @@ main {
     border-radius: 10px;
     margin-top: 20px;
     margin-right: none;
+    cursor: pointer;
+    border: solid white 3px;
+}
+
+#sidebar li:hover {
+    border: 3px solid gold;
 }
 
 #sidebar button {
