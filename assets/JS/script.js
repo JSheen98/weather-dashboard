@@ -3,21 +3,18 @@ var city = $("#location-name");
 var previousSearchContainer = $("#previous-search-container");
 var cities = JSON.parse(localStorage.getItem("location")) || [];
 var forecastDiv = $('#five-day-forecast')
-
-console.log()
+var cardContainer = $('#card-container')
 
 function fetchLocation(event) {
-    // if statement if event came from city button or if it came from search
-    // var place = event.target.innerText
-    // else place = city.val()
+    // if statement if event came from city button or if it came from search // else place = city.val()
+    var place = event.target.innerText
 
-    
+    if (click = $('#submit-btn')){
+        var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey
+    } else {
+        var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
+    }
 
-  var locationQueryURL =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
-    city.val() +
-    "&appid=" +
-    APIkey;
 
   fetch(locationQueryURL)
     .then(function (response) {
@@ -51,17 +48,18 @@ function fetchWeather(lat, lon) {
   }) 
   .then(function(data){
     console.log(data)
-    var html = ''
+    var fiveDayContainer = ''
     for (var i = 0; i < 5; i++){
-        html += `<div class="forecast-card">
-        <p class="card-date">${data.list[i*8].dt_txt.split(' ')}</p>
-        <p class="card-icon"><img src='https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png'></p>
-        <p class="card-temp">Temp: ${data.list[i*8].main.temp}</p>
-        <p class="card-wind">Wind: ${data.list[i*8].wind.speed}</p>
-        <p class="card-humidity">Humidity: ${data.list[i*8].main.humidity}%</p>
-    </div>`
+        fiveDayContainer += 
+        `<div class="forecast-card">
+                <p>${data.list[i*8].dt_txt.split(' ')}</p>
+                <p><img src='https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png'></p>
+                <p>Temp: ${data.list[i*8].main.temp}</p>
+                <p>Wind: ${data.list[i*8].wind.speed}</p>
+                <p>Humidity: ${data.list[i*8].main.humidity}%</p>
+            </div>`
     }
-    forecastDiv.html(html)
+    forecastDiv.html(fiveDayContainer)
   })
     
 }
@@ -108,6 +106,7 @@ $("#submit-btn").click(function (e) {
   if (!city.val()) {
     alert("Please enter a valid search");
   } else {
+    console.log(e.target.innerText)
     fetchLocation();
   }
 });
