@@ -88,7 +88,7 @@ label {
     width: 1000px;
 }
 
-.card-container {
+#card-container {
     display: flex;
     flex-direction: row;
 }
