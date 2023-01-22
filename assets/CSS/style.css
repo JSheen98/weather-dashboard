@@ -97,8 +97,22 @@ h3 {
     font-size: 30px;
 }
 
-#current-day-forecast h3, #current-day-forecast p {
+#current-day-forecast p {
     padding: 8px;
+}
+
+#current-day-forecast h3 {
+    padding: 0px;
+    padding-left: 10px;
+}
+
+#forecast-container img {
+    height: 40px;
+    width: 40px;
+}
+
+#forecast-title h3 {
+    padding-left: 30px;
 }
 
 #forecast-header {
