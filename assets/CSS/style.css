@@ -115,6 +115,10 @@ h3 {
     padding-left: 30px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 #forecast-header {
     margin-top: 20px;
     padding-left: 40px;
