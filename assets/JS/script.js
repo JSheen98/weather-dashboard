@@ -3,17 +3,22 @@ var city = $("#location-name");
 var previousSearchContainer = $("#previous-search-container");
 var cities = JSON.parse(localStorage.getItem("location")) || [];
 var forecastDiv = $('#five-day-forecast')
+var forecastContainer = $('#forecast-container')
+var currentDayForecastSection = $('#current-day-forecast-section')
+var forecastTitle = $('#forecast-title')
 var cardContainer = $('#card-container')
+var li = $('<li>')
 
 function fetchLocation(event) {
     // if statement if event came from city button or if it came from search // else place = city.val()
-    var place = event.target.innerText
+    // var place = event.target.innerText
 
-    if (click = $('#submit-btn')){
+    // var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
         var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey
-    } else {
-        var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
-    }
+   
+        
+        
+    
 
 
   fetch(locationQueryURL)
@@ -47,19 +52,38 @@ function fetchWeather(lat, lon) {
     return response.json()
   }) 
   .then(function(data){
-    console.log(data)
     var fiveDayContainer = ''
-    for (var i = 0; i < 5; i++){
+    var currentDayForecastCard = ''
+    var fiveDayTitleContainer = ''
+    var currentTimestamp = data.list[1].dt
+    var currentDate = new Date (currentTimestamp * 1000)
+
+    currentDayForecastCard += `
+    <section id="current-day-forecast">
+      <h3>${data.city.name} (${currentDate.toLocaleDateString('default')}) <img src='https://openweathermap.org/img/w/${data.list[1].weather[0].icon}.png'></h3>
+      <p>Temp: ${data.list[1].main.temp}°F</p>
+      <p>Wind: ${data.list[1].wind.speed}</p>
+      <p>Humidity: ${data.list[1].main.humidity}%</p>
+    </section>`
+    
+    fiveDayTitleContainer += `<h3>Next Five Days: <h3>`
+  
+    for (var i = 1; i < 6; i++){
+        var timestampFiveDay = data.list[i*7].dt
+        var date = new Date(timestampFiveDay * 1000)
         fiveDayContainer += 
         `<div class="forecast-card">
-                <p>${data.list[i*8].dt_txt.split(' ')}</p>
-                <p><img src='https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png'></p>
-                <p>Temp: ${data.list[i*8].main.temp}</p>
-                <p>Wind: ${data.list[i*8].wind.speed}</p>
-                <p>Humidity: ${data.list[i*8].main.humidity}%</p>
+                <p>${date.toLocaleDateString('default')}</p>
+                <p><img src='https://openweathermap.org/img/w/${data.list[i*7].weather[0].icon}.png'></p>
+                <p>Temp: ${data.list[i*7].main.temp}°F</p>
+                <p>Wind: ${data.list[i*7].wind.speed}</p>
+                <p>Humidity: ${data.list[i*7].main.humidity}%</p>
             </div>`
     }
     forecastDiv.html(fiveDayContainer)
+    currentDayForecastSection.html(currentDayForecastCard)
+    forecastTitle.html(fiveDayTitleContainer)
+    
   })
     
 }
@@ -92,23 +116,28 @@ function loadItemsOnPage() {
           capitalize[i].charAt(0).toUpperCase() + capitalize[i].slice(1);
       }
       var userInputFinal = capitalize.join(" ");
-      var li = $('<li>')
+      li = $('<li>')
       li.text(userInputFinal) // jquery version of innerText
       li.click(fetchLocation) // click method for jquery
       $("#previous-searches").prepend(li)
+      
     //   $("#previous-searches").prepend("<li>" + userInputFinal + "</li>");
     }
   }
 }
 
-$("#submit-btn").click(function (e) {
-  e.preventDefault();
-  if (!city.val()) {
-    alert("Please enter a valid search");
-  } else {
-    console.log(e.target.innerText)
-    fetchLocation();
-  }
+
+$("#submit-btn").click(function (event) {
+  event.preventDefault();
+  fetchLocation();
+//   console.log(event.target.tagName)
+//   console.log(event.target)
+//   if (!city.val()) {
+//     alert("Please enter a valid search");
+//   } else {
+    
+//   }
 });
 
 loadItemsOnPage();
+
