@@ -61,9 +61,9 @@ function fetchWeather(lat, lon) {
     currentDayForecastCard += `
     <section id="current-day-forecast">
       <h3>${data.city.name} (${currentDate.toLocaleDateString('default')}) <img src='https://openweathermap.org/img/w/${data.list[1].weather[0].icon}.png'></h3>
-      <p>Temp: ${data.list[1].main.temp}°F</p>
-      <p>Wind: ${data.list[1].wind.speed}</p>
-      <p>Humidity: ${data.list[1].main.humidity}%</p>
+      <p><span class="bold">Temp:</span> ${data.list[1].main.temp}°F</p>
+      <p><span class="bold">Wind:</span> ${data.list[1].wind.speed}</p>
+      <p><span class="bold">Humidity:</span> ${data.list[1].main.humidity}%</p>
     </section>`
     
     fiveDayTitleContainer += `<h3>Next Five Days: <h3>`
@@ -73,11 +73,11 @@ function fetchWeather(lat, lon) {
         var date = new Date(timestampFiveDay * 1000)
         fiveDayContainer += 
         `<div class="forecast-card">
-                <p>${date.toLocaleDateString('default')}</p>
+                <p><span class="bold">${date.toLocaleDateString('default')}<span class="bold"></p>
                 <p><img src='https://openweathermap.org/img/w/${data.list[i*7].weather[0].icon}.png'></p>
-                <p>Temp: ${data.list[i*7].main.temp}°F</p>
-                <p>Wind: ${data.list[i*7].wind.speed}</p>
-                <p>Humidity: ${data.list[i*7].main.humidity}%</p>
+                <p><span class="bold">Temp:</span> ${data.list[i*7].main.temp}°F</p>
+                <p><span class="bold">Wind:</span> ${data.list[i*7].wind.speed}</p>
+                <p><span class="bold">Humidity:</span> ${data.list[i*7].main.humidity}%</p>
             </div>`
     }
     forecastDiv.html(fiveDayContainer)
