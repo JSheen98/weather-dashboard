@@ -40,13 +40,13 @@ main {
     border-radius: 10px;
     margin-top: 20px;
     margin-right: none;
-    cursor: pointer;
+    /* cursor: pointer; TODO */
     border: solid white 3px;
 }
 
-#sidebar li:hover {
-    border: 3px solid gold;
-}
+/* #sidebar li:hover {
+    border: 3px solid gold; TODO
+} */
 
 #sidebar button {
     padding: 10px;
@@ -143,4 +143,14 @@ h3 {
     padding: 5px;
 }
 
-
+@media screen and (max-width: 1537px) {
+    #sidebar input {
+        width: 300px;
+    }
+}
+ 
+@media screen and (max-width: 1337px) {
+    #sidebar input {
+        width: 200px;
+    }
+}
