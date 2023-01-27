@@ -40,7 +40,7 @@ function fetchLocation(event) {
 
 function fetchWeather(lat, lon) {
   var weatherQueryURL =
-    "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=imperial";
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&units=imperial";
 
     // fetches the data from the above API, uses lat and lon variables from the fetchLocation function
   fetch(weatherQueryURL)
