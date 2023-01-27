@@ -9,9 +9,9 @@ var li = $("<li>");
 
 
 function fetchLocation(event) {
-  // TODO: if statement: if event came from city button or if it came from search // else place = city.val()
   var place = event.target.innerText
   
+  // if the target id is the submit button, use first variable, else, use second
   if (event.target.id == "submit-btn") {
     var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey;
     saveLocationAndCreateListItem();
