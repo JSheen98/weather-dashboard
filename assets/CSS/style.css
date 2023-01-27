@@ -40,13 +40,13 @@ main {
     border-radius: 10px;
     margin-top: 20px;
     margin-right: none;
-    /* cursor: pointer; TODO */
+    cursor: pointer;
     border: solid white 3px;
 }
 
-/* #sidebar li:hover {
-    border: 3px solid gold; TODO
-} */
+#sidebar li:hover {
+    border: 3px solid gold;
+}
 
 #sidebar button {
     padding: 10px;
