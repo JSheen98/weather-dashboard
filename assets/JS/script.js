@@ -7,13 +7,18 @@ var currentDayForecastSection = $("#current-day-forecast-section");
 var forecastTitle = $("#forecast-title");
 var li = $("<li>");
 
+
 function fetchLocation(event) {
   // TODO: if statement: if event came from city button or if it came from search // else place = city.val()
-  // var place = event.target.innerText
-  // var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
-
-  var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey;
-
+  var place = event.target.innerText
+  
+  if (event.target.id == "submit-btn") {
+    var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey;
+    saveLocationAndCreateListItem();
+  } else {
+    var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
+  }
+  
   // fetches data from above API searching the location name, and variables are created for lat and lon to be used in the next fetch function
   fetch(locationQueryURL)
     .then(function (response) {
@@ -28,7 +33,6 @@ function fetchLocation(event) {
         var lat = data[0].lat;
         var lon = data[0].lon;
 
-        saveLocationAndCreateListItem();
         fetchWeather(lat, lon);
       }
     });
@@ -97,8 +101,12 @@ function saveLocationAndCreateListItem() {
       capitalize[i].charAt(0).toUpperCase() + capitalize[i].slice(1);
   }
   var userInputFinal = capitalize.join(" ");
-  $("#previous-searches").prepend("<li>" + userInputFinal + "</li>");
-  city.val("");
+  city.val('')
+  li = $("<li>");
+  li.text(userInputFinal);
+  li.click(fetchLocation); 
+  $("#previous-searches").prepend(li);
+
 }
 
 // function that loads locations to the page via local storage
@@ -116,7 +124,7 @@ function loadItemsOnPage() {
       var userInputFinal = capitalize.join(" ");
       li = $("<li>");
       li.text(userInputFinal);
-      // li.click(fetchLocation); TODO
+      li.click(fetchLocation); 
       $("#previous-searches").prepend(li);
     }
   }
@@ -129,7 +137,7 @@ $("#submit-btn").click(function (event) {
   if (!city.val()) {
     alert("Please enter a valid search")
   } else {
-  fetchLocation();
+  fetchLocation(event);
   }
 });
 
