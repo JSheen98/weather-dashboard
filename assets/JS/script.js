@@ -13,10 +13,10 @@ function fetchLocation(event) {
   
   // if the target id is the submit button, use first variable, else, use second
   if (event.target.id == "submit-btn") {
-    var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey;
+    var locationQueryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city.val() + "&appid=" + APIkey;
     saveLocationAndCreateListItem();
   } else {
-    var locationQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
+    var locationQueryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + place + "&appid=" + APIkey
   }
   
   // fetches data from above API searching the location name, and variables are created for lat and lon to be used in the next fetch function
