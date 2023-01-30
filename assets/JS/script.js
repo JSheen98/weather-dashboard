@@ -1,3 +1,6 @@
+$(function () {
+
+
 var APIkey = "1be5c11c833eea2a7b4c716a205a1674";
 var city = $("#location-name");
 var previousSearchContainer = $("#previous-search-container");
@@ -143,3 +146,5 @@ $("#submit-btn").click(function (event) {
 
 // function call for local storage functionality
 loadItemsOnPage();
+
+})
