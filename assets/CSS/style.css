@@ -49,6 +49,7 @@ main {
 }
 
 #sidebar button {
+    height: 37px;
     padding: 10px;
     float: right;
     cursor: pointer;
