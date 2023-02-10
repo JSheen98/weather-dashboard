@@ -2,7 +2,7 @@
 
 ## ✏️ Description 
 
-With this project, I wanted to create a useful resource for travelers to view the current day's weather, as well as the next 5 days. The user will input a search (it must be a valid location), and then press the search. The previously searched location(s) will be persisted to the page via local storage, and will be clickable. Weather a previous location is tapped, or a new location is searched, the weather cards will be dynamically created via JavaScript. These cards include the following information: Location, Date, Icon Representation of the current weather, Temperature, Wind Speed, and Humidity. Each new search will generate new content.
+With this project, I wanted to create a useful resource for travelers to view the current day's weather, as well as the next 5 days. The user will input a search (it must be a valid location), and then press the search icon. The previously searched location(s) will be persisted to the page via local storage, and will be clickable. Whether a previous location is tapped, or a new location is searched, the weather cards will be dynamically created via JavaScript. These cards include the following information: Location, Date, Icon Representation of the current weather, Temperature, Wind Speed, and Humidity. Each new search will generate new content.
 
 ## User Story
 
